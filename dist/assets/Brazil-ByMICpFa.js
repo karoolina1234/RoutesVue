@@ -1,0 +1,1 @@
+import{_ as e,c as s,o as c,a as o}from"./index-DxsvRee5.js";const t={},a={class:"brazil"},r=o("h1",null,"Brazil",-1),_=[r];function n(i,l){return c(),s("div",a,_)}const f=e(t,[["render",n]]);export{f as default};

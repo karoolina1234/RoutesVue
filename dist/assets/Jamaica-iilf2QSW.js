@@ -1,0 +1,1 @@
+import{_ as a,c,o as e,a as s}from"./index-DxsvRee5.js";const o={},t={class:"jamaica"},_=s("h1",null,"Jamaica",-1),n=[_];function r(i,d){return e(),c("div",t,n)}const m=a(o,[["render",r]]);export{m as default};
