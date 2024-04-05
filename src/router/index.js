@@ -8,6 +8,7 @@ const routes = [
     path: "/vue-school-travel-app/:id/:slug",
     name: "destination.show",
     component: () => import("@/pages/DestinationShow.vue"),
+    props: (route) => ({ id: parseInt(route.params.id) }),
   },
 ];
 

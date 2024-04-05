@@ -11,30 +11,19 @@
 </template>
 
 <script>
+import sourceData from "../data.json";
+
 export default {
-  data() {
-    return {
-      destination: null,
-    };
-  },
-  computed: {
-    destinationId() {
-      return parseInt(this.$route.params.id);
-    },
+  props: {
+    id: { type: Number, required: true },
   },
 
-  methods: {
-    async iniData() {
-      if (this.$route.params.slug) {
-        const response = await fetch(
-          `https://travel-dummy-api.netlify.app/${this.$route.params.slug}.json`
-        );
-        this.destination = await response.json();
-      }
+  computed: {
+    destination() {
+      return sourceData.destinations.find(
+        (destination) => destination.id === this.id
+      );
     },
-  },
-  async created() {
-    this.iniData();
   },
 };
 </script>
