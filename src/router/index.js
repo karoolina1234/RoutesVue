@@ -9,12 +9,14 @@ const routes = [
     name: "destination.show",
     component: () => import("@/pages/DestinationShow.vue"),
     props: (route) => ({ ...route.params, id: parseInt(route.params.id) }),
-  },
-  {
-    path: "/destination/:id/:slug/:experienceSlug",
-    name: "experience.show",
-    component: () => import("@/pages/ExperienceShow.vue"),
-    props: (route) => ({ ...route.params, id: parseInt(route.params.id) }),
+    children: [
+      {
+        path: ":experienceSlug",
+        name: "experience.show",
+        component: () => import("@/pages/ExperienceShow.vue"),
+        props: (route) => ({ ...route.params, id: parseInt(route.params.id) }),
+      },
+    ],
   },
 ];
 
@@ -24,3 +26,5 @@ const router = createRouter({
 });
 
 export default router;
+
+//A rota passando como filha faz com que seja exibido o elemento dentro da pagina pai e não em uma nova pagina

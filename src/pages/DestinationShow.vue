@@ -15,11 +15,16 @@
       <router-link
         v-for="experience in destination.experiences"
         :key="experience.slug"
-        :to="{name:'experience.show', params:{experienceSlug: experience.slug} }"
+        :to="{
+          name: 'experience.show',
+          params: { experienceSlug: experience.slug },
+        }"
       >
         <ExperienceCardVue :experience="experience" />
       </router-link>
     </div>
+    <!--O ROUTER VIEW NESSE CASO É PARA CHAMAR AS ROTAS FILHAS.-->
+    <router-view /> 
   </section>
 </template>
 
