@@ -1,6 +1,7 @@
 <template>
   <section v-if="destination" class="destination">
     <h2>{{ destination.name }}</h2>
+    <GoBack />
 
     <div class="destination-details">
       <img :src="`/images/${destination.image}`" :alt="destination.name" />
@@ -24,15 +25,16 @@
       </router-link>
     </div>
     <!--O ROUTER VIEW NESSE CASO É PARA CHAMAR AS ROTAS FILHAS.-->
-    <router-view /> 
+    <router-view />
   </section>
 </template>
 
 <script>
 import ExperienceCardVue from "@/components/ExperienceCard.vue";
+import GoBack from "@/components/GoBack.vue";
 import sourceData from "../data.json";
 export default {
-  components: { ExperienceCardVue },
+  components: { ExperienceCardVue, GoBack },
   props: {
     id: { type: Number, required: true },
   },
