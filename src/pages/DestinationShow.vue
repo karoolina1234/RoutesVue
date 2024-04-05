@@ -1,32 +1,34 @@
 <template>
-  <section v-if="destination" class="destination">
-    <h2>{{ destination.name }}</h2>
-    <GoBack />
+  <div>
+    <section v-if="destination" class="destination">
+      <h2>{{ destination.name }}</h2>
+      <GoBack />
 
-    <div class="destination-details">
-      <img :src="`/images/${destination.image}`" :alt="destination.name" />
+      <div class="destination-details">
+        <img :src="`/images/${destination.image}`" :alt="destination.name" />
 
-      <p>{{ destination.description }}</p>
-    </div>
-  </section>
+        <p>{{ destination.description }}</p>
+      </div>
+    </section>
 
-  <section class="experiences">
-    <h2>Top Experiences in {{ destination.name }}</h2>
-    <div class="cards">
-      <router-link
-        v-for="experience in destination.experiences"
-        :key="experience.slug"
-        :to="{
-          name: 'experience.show',
-          params: { experienceSlug: experience.slug },
-        }"
-      >
-        <ExperienceCardVue :experience="experience" />
-      </router-link>
-    </div>
-    <!--O ROUTER VIEW NESSE CASO É PARA CHAMAR AS ROTAS FILHAS.-->
-    <router-view />
-  </section>
+    <section class="experiences">
+      <h2>Top Experiences in {{ destination.name }}</h2>
+      <div class="cards">
+        <router-link
+          v-for="experience in destination.experiences"
+          :key="experience.slug"
+          :to="{
+            name: 'experience.show',
+            params: { experienceSlug: experience.slug },
+          }"
+        >
+          <ExperienceCardVue :experience="experience" />
+        </router-link>
+      </div>
+      <!--O ROUTER VIEW NESSE CASO É PARA CHAMAR AS ROTAS FILHAS.-->
+      <router-view />
+    </section>
+  </div>
 </template>
 
 <script>
