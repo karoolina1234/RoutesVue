@@ -25,7 +25,19 @@ const routes = [
       },
     ],
   },
-
+  {
+    path: "/protected",
+    name: "protected",
+    component: () => import("@/pages/Protected.vue"),
+    meta: {
+      requiredAuth: true,
+    },
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/pages/Login.vue"),
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
@@ -46,6 +58,11 @@ const router = createRouter({
   },
 });
 
+router.beforeEach((to, from) => {
+  if (to.meta.requiredAuth && !window.user) {
+    return { name: "login" };
+  }
+});
 export default router;
 
 //A rota passando como filha faz com que seja exibido o elemento dentro da pagina pai e não em uma nova pagina
