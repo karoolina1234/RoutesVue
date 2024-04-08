@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link id="logo" :to="'/'">Vue School travel app</router-link>
-    <router-link
+    <AppLink id="logo" :to="'/'">Vue School travel app</AppLink>
+    <AppLink
       v-for="destination in destinations"
       :key="destination.id"
       :to="{
@@ -10,15 +10,15 @@
       }"
     >
       {{ destination.name }}
-    </router-link>
+    </AppLink>
 
-    <router-link :to="{ name: 'protected' }">Dashboard</router-link>
+    <AppLink :to="{ name: 'protected' }">Dashboard</AppLink>
+    <AppLink to="https://vueschool.io">Vue School</AppLink>
   </div>
 </template>
 
 <script>
 import sourceData from "../data.json";
-
 export default {
   data() {
     return {
